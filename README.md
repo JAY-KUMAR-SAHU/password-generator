@@ -2,6 +2,8 @@
 
 A simple, privacy-friendly password generator that runs entirely in your browser.
 
+**Live site:** https://jks-password-generator.netlify.app
+
 ## Features
 
 - Choose the password length (8–128) and the minimum number of lowercase, uppercase, numbers and symbols
@@ -13,7 +15,7 @@ A simple, privacy-friendly password generator that runs entirely in your browser
 
 ## Usage
 
-Open `index.html` in any modern browser. There's nothing to install or build.
+Use it online at [jks-password-generator.netlify.app](https://jks-password-generator.netlify.app), or open `index.html` in any modern browser. There's nothing to install or build.
 
 ## Project structure
 
