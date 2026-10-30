@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <meta
+      name="description"
+      content="Generate strong, customisable passwords instantly. Everything runs in your browser."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>"
+    />
+    <!-- loaded before first paint so the saved theme applies without a flash -->
+    <script src="theme-init.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <div class="theme-toggle">
+        <div class="theme-toggle-group" role="group" aria-label="Colour theme">
+          <button type="button" class="theme-btn" data-theme-choice="light">
+            ☀️ Light
+          </button>
+          <button type="button" class="theme-btn" data-theme-choice="dark">
+            🌙 Dark
+          </button>
+        </div>
+      </div>
+      <header>
+        <h1>🔐 Password Generator</h1>
+        <p class="subtitle">
+          Create a strong, random password tailored to your requirements.
+        </p>
+      </header>
+
+      <form id="passwdForm" novalidate>
+        <div class="field">
+          <label for="passwdLength">Password length</label>
+          <input
+            type="number"
+            id="passwdLength"
+            min="8"
+            max="128"
+            placeholder="12"
+            value="12"
+            aria-describedby="passwdLengthHint"
+          />
+          <small id="passwdLengthHint" class="hint"
+            >Between 8 and 128 characters. 12 or more is recommended.</small
+          >
+        </div>
+
+        <p class="section-label">Minimum characters of each type</p>
+        <!-- <p class="hint" style="margin: -8px 0 12px">
+          Suggested values are pre-filled. Set any to 0 if you don&#39;t need it.
+        </p> -->
+        <div class="grid">
+          <div>
+            <label for="lowerCase">Lowercase (a–z)</label>
+            <input
+              type="number"
+              id="lowerCase"
+              min="0"
+              placeholder="3"
+              value="3"
+            />
+          </div>
+          <div>
+            <label for="upperCase">Uppercase (A–Z)</label>
+            <input
+              type="number"
+              id="upperCase"
+              min="0"
+              placeholder="3"
+              value="3"
+            />
+          </div>
+          <div>
+            <label for="dig">Numbers (0–9)</label>
+            <input type="number" id="dig" min="0" placeholder="3" value="3" />
+          </div>
+          <div>
+            <label for="sp">Symbols (!@#$%^&amp;*()?_)</label>
+            <input type="number" id="sp" min="0" placeholder="3" value="3" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-block" id="passwdFormSubmit">
+          Generate password
+        </button>
+        <div class="error" id="error" role="alert"></div>
+      </form>
+
+      <section class="result" id="result" aria-live="polite">
+        <p class="section-label">Your password</p>
+        <div class="output-row">
+          <div id="output"></div>
+          <button type="button" class="btn" id="copyBtn">Copy</button>
+        </div>
+        <div class="copied" id="copyStatus"></div>
+
+        <div class="strength" id="strength">
+          <div class="strength-head">
+            <span>Estimated time to crack</span>
+            <span class="badge" id="strengthLabel"></span>
+          </div>
+          <div class="crack-time" id="crackTime"></div>
+          <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+          <p class="hint" id="crackNote"></p>
+        </div>
+      </section>
+
+      <p class="privacy">
+        Passwords are generated entirely in your browser and are never sent or
+        stored anywhere.
+      </p>
+    </main>
+    <footer>
+      <strong>Disclaimer:</strong> This is a personal project built for learning
+      purposes. It is provided as-is, without any warranty or guarantee of
+      fitness for any purpose. Use generated passwords at your own discretion.
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
